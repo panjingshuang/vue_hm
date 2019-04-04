@@ -33,7 +33,7 @@
 </template>
 
 <script>
-
+	
 </script>
 
 
@@ -42,6 +42,7 @@
 	.bodyContainer{
 		padding:40px  0;
 		overflow-x: hidden;
+		padding-bottom: 50.4px;
 	}
 	.v-enter{
 		opacity: 0;

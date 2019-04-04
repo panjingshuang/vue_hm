@@ -13,16 +13,19 @@ import router from './router.js'
 import '../lib/mui/css/mui.min.css'
 import '../lib/mui/css/icons-extra.css'
 
+import moment from 'moment'
+Vue.filter('dataFomart',function(data,pattern="YYY-MM-DD hh:mm:ss"){
+     return moment(data).format(pattern)
+})
 
 
 
-
-import { Header,Swipe, SwipeItem } from 'mint-ui';
+import { Header,Swipe, SwipeItem ,Button} from 'mint-ui';
 import 'mint-ui/lib/style.css'
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
-
+Vue.component(Button.name, Button);
 
 
 import app from './App.vue'
