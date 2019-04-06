@@ -20,15 +20,22 @@ Vue.filter('dataFomart',function(data,pattern="YYY-MM-DD hh:mm:ss"){
 
 
 
-import { Header,Swipe, SwipeItem ,Button} from 'mint-ui';
+// import { Header,Swipe, SwipeItem ,Button} from 'mint-ui';
 import 'mint-ui/lib/style.css'
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+// Vue.component(Header.name, Header);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
 
 
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+import "./css/golbal.css"
 import app from './App.vue'
+
+import MIntUI from "mint-ui"
+Vue.use(MIntUI)
+
 
 var vm = new Vue({
     el:'#app',
@@ -37,3 +44,5 @@ var vm = new Vue({
      router
     
 })
+
+

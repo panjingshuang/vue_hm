@@ -1,0 +1,9 @@
+.thumbs .my-gallery figure{
+    margin:10px;
+    box-shadow: 0 0 10px #ccc;
+}
+.thumbs .my-gallery figure img{
+    width:100px;
+    height:100px;
+    vertical-align: middle;
+}
