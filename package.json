@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack-dev-server --open chrome --port 3000 --contentBase src --host  172.16.33.54 --hot ",
+    "dev": "webpack-dev-server --open chrome --port 3000 --contentBase src --hot ",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

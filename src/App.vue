@@ -1,7 +1,12 @@
 <template>
     <div class="bodyContainer">
 			<!-- 固定顶部 -->
-		<mt-header fixed title="Vue项目"></mt-header>
+		<mt-header fixed title="Vue项目">
+			<span to="/" slot="left" v-show="flag">
+				<mt-button icon="back" @click="goBack">返回</mt-button>
+			</span>
+
+		</mt-header>
 			<!-- 中间部分 -->
 		<transition>
 				<router-view></router-view>
@@ -18,7 +23,7 @@
 			</router-link>
 			<router-link class="mui-tab-item-llb" to="/shopcar">
 				<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-					<span class="mui-badge" id="badge">9</span>
+					<span class="mui-badge" id="badge">{{$store.getters.count}}</span>
 				</span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
@@ -33,8 +38,39 @@
 </template>
 
 <script>
-	
+export default {
+	data(){
+		return {
+			flag :true
+		}
+	},
+	created(){
+	 if (this.$route.path === "/home") {
+      this.flag = false;
+    } else {
+      this.flag = true;
+    }
+	},
+	watch: {
+    // 当页面刷新的时候，不会触发 watch 中监听的 路由地址的变化
+    "$route.path": function(newVal, oldVal) {
+      if (newVal === "/home") {
+        this.flag = false;
+      } else {
+        this.flag = true;
+      }
+    }
+  },
+	methods:{
+		goBack() {
+      // 点击返回按钮，向后跳转
+      this.$router.go(-1);
+      console.log(this);
+    }
+	}
+}
 </script>
+
 
 
 

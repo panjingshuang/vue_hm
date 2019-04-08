@@ -57,6 +57,7 @@
           			<mt-button type="danger" size="large" plain @click="gocomment">商品评论</mt-button>
 				</div>
 			</div>
+			
     </div>
 </template>
 
@@ -123,9 +124,10 @@ export default {
 			const badgePos = document.getElementById("badge").getBoundingClientRect();
 			const left = badgePos.left - ballPos.left;
 			const top = badgePos.top - ballPos.top;
-
+			 el.style.transform = "translate(" + left + "px, " + top + "px)";
+			el.style.transition = "all .2s cubic-bezier(.46,-0.4,1,.49)";
 			// 动态设置 top 和 left 值
-				el.style.transform = "translate(" + left + "px, " + top + "px)";
+			
 			// 设置小球的过渡效果
 			// 贝塞尔曲线在线生成器： http://cubic-bezier.com/#.46,-0.4,1,.49
 				el.style.transition = "all .5s cubic-bezier(.46,-0.4,1,.49)";
@@ -138,18 +140,13 @@ export default {
 		addToCart() {
 					// 点击加入购物车
 					this.flag = !this.flag;
-					// 调用 mutations 中的 addToCar
-					/* this.$store.commit("addToCar", {
-						id: this.id,
-						count: this.selectedCount
-					}); */
-					// 直接调用 mapMutaions 中映射出来的方法
-				// 	this.addToCar({
-				// 		id: this.id,
-				// 		count: this.selectedCount,
-				// 		selected: true,
-				// 		price: this.goodsinfo.sell_price
-				//   });
+					 var goodinfo = {
+						id:this.id,
+						count:this.count,
+						price:this.goodlist.sell_price,
+						selected:true
+					}
+					this.$store.commit('addTocart',goodinfo)	
 		},
 		getcount(count){
 			this.count = count
